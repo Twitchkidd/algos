@@ -5,19 +5,25 @@
 // input: [4,2,2,3,2,2,2] => output: [2,3,4]
 
 const uniqSort = arr => {
-	const newArr = [];
 	const breadcrumbs = {};
+	// const newArr = [];
+	const result = [arr[0]];
 
-	for (let i = 0; i < arr.length; i++) {
-		if (breadcrumbs[arr[i]]) {
-			continue;
-		} else {
+	// for (let i = 0; i < arr.length; i++) {
+	for (let i = 1; i < arr.length; i++) {
+		// if (breadcrumbs[arr[i]]) {
+		// 	continue;
+		// } else {
+		// 	breadcrumbs[arr[i]] = true;
+		// 	newArr.push(arr[i]);
+		// }
+		if (!breadcrumbs[arr[i]]) {
+			result.push(arr[i]);
 			breadcrumbs[arr[i]] = true;
-			newArr.push(arr[i]);
 		}
 	}
 
-	return newArr.sort((a, b) => a - b);
+	return result.sort((a, b) => a - b);
 };
 
 console.log(uniqSort([1, 5, 2, 1]));
