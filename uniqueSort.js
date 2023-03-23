@@ -5,9 +5,19 @@
 // input: [4,2,2,3,2,2,2] => output: [2,3,4]
 
 const uniqSort = arr => {
+	const newArr = [];
 	const breadcrumbs = {};
 
-	return arr.sort((a, b) => a - b);
+	for (let i = 0; i < arr.length; i++) {
+		if (breadcrumbs[arr[i]]) {
+			continue;
+		} else {
+			breadcrumbs[arr[i]] = true;
+			newArr.push(arr[i]);
+		}
+	}
+
+	return newArr.sort((a, b) => a - b);
 };
 
 console.log(uniqSort([1, 5, 2, 1]));
