@@ -6,17 +6,9 @@
 
 const uniqSort = arr => {
 	const breadcrumbs = {};
-	// const newArr = [];
 	const result = [arr[0]];
 
-	// for (let i = 0; i < arr.length; i++) {
 	for (let i = 1; i < arr.length; i++) {
-		// if (breadcrumbs[arr[i]]) {
-		// 	continue;
-		// } else {
-		// 	breadcrumbs[arr[i]] = true;
-		// 	newArr.push(arr[i]);
-		// }
 		if (!breadcrumbs[arr[i]]) {
 			result.push(arr[i]);
 			breadcrumbs[arr[i]] = true;
